@@ -1,0 +1,36 @@
+- name: 'HACKTIFY: Setup CloudOPS Monitor Lab'
+  id: 6a2a97f8-c522-49ff-8cc2-91e27ad83fe1
+  description: >-
+    A cloud infrastructure monitoring platform is running on port 8091. The
+    dashboard shows server health and provides diagnostic tools for
+    operations staff. Begin by reviewing the application source — there may
+    be information embedded in the page that helps you authenticate. Once
+    inside, investigate how the platform references individual servers and
+    whether you can reach servers beyond those normally shown to your
+    account. Your objective is to access a hidden administrative server and
+    execute OS commands on the target.
+  tactic: execution
+  technique_id: T1059.004
+  technique_name: 'Command and Scripting Interpreter: Unix Shell'
+  singleton: true
+  repeatable: false
+  delete_payload: false
+  executors:
+    - name: sh
+      platform: linux
+      command: |
+        git clone https://github.com/hacktifytechnologies/CloudOPS-Monitor /opt/hacktify/CloudOPS-Monitor
+        cd /opt/hacktify/CloudOPS-Monitor
+        chmod +x setup.sh
+        bash setup.sh -a
+      code: null
+      language: null
+      build_target: null
+      payloads: []
+      uploads: []
+      timeout: 300
+      parsers: []
+      cleanup: []
+      variations: []
+      additional_info: {}
+  requirements: []

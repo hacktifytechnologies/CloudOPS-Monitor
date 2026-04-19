@@ -1,0 +1,26 @@
+services:
+  protocart-php:
+    build: .
+    image: hacktify/protocart-php:1.0
+    container_name: protocart-php
+    ports:
+      - "8091:80"
+    depends_on:
+      - mysql
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASS: root
+      DB_NAME: protocart
+
+  mysql:
+    image: mysql:5.7
+    container_name: protocart-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: protocart
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
