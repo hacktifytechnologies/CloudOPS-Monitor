@@ -3,7 +3,7 @@
   description: >-
     A cloud infrastructure monitoring platform is running on port 8091. The
     dashboard shows server health and provides diagnostic tools for
-    operations staff. Begin by reviewing the application source — there may
+    operations staff. Begin by reviewing the application source, there may
     be information embedded in the page that helps you authenticate. Once
     inside, investigate how the platform references individual servers and
     whether you can reach servers beyond those normally shown to your
@@ -19,16 +19,13 @@
     - name: sh
       platform: linux
       command: |
-        git clone https://github.com/hacktifytechnologies/CloudOPS-Monitor /opt/hacktify/CloudOPS-Monitor
-        cd /opt/hacktify/CloudOPS-Monitor
-        chmod +x setup.sh
-        bash setup.sh -a
+        git clone https://github.com/hacktifytechnologies/CloudOPS-Monitor /opt/hacktify/CloudOPS-Monitor && cd /opt/hacktify/CloudOPS-Monitor && docker compose up -d --build && echo 'Lab deployment complete'
       code: null
       language: null
       build_target: null
       payloads: []
       uploads: []
-      timeout: 300
+      timeout: 600
       parsers: []
       cleanup: []
       variations: []
