@@ -1,7 +1,6 @@
 services:
   protocart-php:
-    build: .
-    image: hacktify/protocart-php:1.0
+    image: hacktifytechnologies/protocart-php:1.0
     container_name: protocart-php
     ports:
       - "8091:80"
