@@ -3,7 +3,7 @@ services:
     image: hacktifytechnologies/protocart-admin:1.0
     container_name: protocart-php
     ports:
-      - "8091:80"
+      - "8091:8088"
     depends_on:
       - mysql
     environment:
